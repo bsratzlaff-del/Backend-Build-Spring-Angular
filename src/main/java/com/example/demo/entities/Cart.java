@@ -1,6 +1,8 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -25,9 +27,11 @@ public class Cart {
     @Column(name = "orderTrackingNumber")
     private String orderTrackingNumber;
 
+    @NotNull(message = "Package price is required")
     @Column(name = "package_price")
     private BigDecimal package_price;
 
+    @NotNull(message = "Party size is required")
     @Column(name = "party_size")
     private int party_size;
 

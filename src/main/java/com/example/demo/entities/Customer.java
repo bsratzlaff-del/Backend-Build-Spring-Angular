@@ -1,6 +1,8 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -20,18 +22,23 @@ public class Customer {
     @Column(name = "id")
     private Long id;
 
+    @NotBlank(message = "First name is required")
     @Column(name = "firstName")
     private String firstName;
 
+    @NotBlank(message = "Last name is required")
     @Column(name = "lastName")
     private String lastName;
 
+    @NotBlank(message = "Address is required")
     @Column(name = "address")
     private String address;
 
+    @NotBlank(message = "Postal code is required")
     @Column(name = "postal_code")
     private String postal_code;
 
+    @NotBlank(message = "Phone number is required")
     @Column(name = "phone")
     private String phone;
 
@@ -43,6 +50,7 @@ public class Customer {
     @UpdateTimestamp
     private Date last_update;
 
+    @NotNull(message = "Division is required")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "division_id")
     private Division division;
