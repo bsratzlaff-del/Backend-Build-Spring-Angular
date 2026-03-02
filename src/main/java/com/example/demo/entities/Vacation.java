@@ -19,7 +19,7 @@ public class Vacation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "vacation_id")
     private Long id;
 
     @Column(name = "vacation_title")

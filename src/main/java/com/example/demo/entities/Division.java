@@ -18,10 +18,10 @@ public class Division {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "division_id")
     private Long id;
 
-    @Column(name = "division_name")
+    @Column(name = "division")
     private String division_name;
 
     @Column(name = "create_date")
