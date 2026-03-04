@@ -2,8 +2,7 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -14,9 +13,7 @@ import java.util.HashSet;
 
 @Entity
 @Table(name="carts")
-@Getter
-@Setter
-
+@Data
 public class Cart {
 
     @Id
@@ -53,6 +50,7 @@ public class Cart {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private Customer customer;
+
 
     public void add(CartItem item) {
         if (item != null) {
