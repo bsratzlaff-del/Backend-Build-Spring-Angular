@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.util.Date;
 import java.util.Set;
 import java.math.BigDecimal;
@@ -27,7 +26,7 @@ public class Excursion {
     @Column(name = "excursion_price")
     private BigDecimal excursion_price;
 
-    @Column(name = "image_URL")
+    @Column(name = "image_url")
     private String image_URL;
 
     @Column(name = "create_date")

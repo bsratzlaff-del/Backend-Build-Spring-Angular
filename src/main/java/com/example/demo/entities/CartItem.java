@@ -11,13 +11,15 @@ import java.util.Set;
 
 
 @Entity
-@Table(name="cartitem")
+@Table(name="cart_items")
+@Getter
+@Setter
 
 public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "cart_item_id")
     private Long id;
 
     @ManyToOne
@@ -31,62 +33,15 @@ public class CartItem {
     private Set<Excursion> excursions;
 
     @ManyToOne
-    @JoinColumn(name = "cart_item_id")
+    @JoinColumn(name = "cart_id")
     private Cart cart;
 
     @Column(name = "create_date")
     @CreationTimestamp
     private Date create_date;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setVacation(Vacation vacation) {
-        this.vacation = vacation;
-    }
-
-    public void setExcursions(Set<Excursion> excursions) {
-        this.excursions = excursions;
-    }
-
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
-
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
-    }
-
-    public void setLast_update(Date last_update) {
-        this.last_update = last_update;
-    }
-
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date last_update;
 
-    public Long getId() {
-        return id;
-    }
-
-    public Vacation getVacation() {
-        return vacation;
-    }
-
-    public Set<Excursion> getExcursions() {
-        return excursions;
-    }
-
-    public Cart getCart() {
-        return cart;
-    }
-
-    public Date getCreate_date() {
-        return create_date;
-    }
-
-    public Date getLast_update() {
-        return last_update;
-    }
 }

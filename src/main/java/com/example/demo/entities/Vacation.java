@@ -5,14 +5,13 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.util.Date;
 import java.util.Set;
 import java.math.BigDecimal;
 
 
 @Entity
-@Table(name="vacation")
+@Table(name="vacations")
 @Getter
 @Setter
 public class Vacation {
@@ -28,10 +27,10 @@ public class Vacation {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "travel_price")
+    @Column(name = "travel_fare_price")
     private BigDecimal travel_price;
 
-    @Column(name = "image_URL")
+    @Column(name = "image_url")
     private String image_URL;
 
     @Column(name = "create_date")
@@ -46,5 +45,5 @@ public class Vacation {
     private Set<Excursion> excursions;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
-    private Set<CartItem> cartitems;
+    private Set<CartItem> cartItems;
 }
