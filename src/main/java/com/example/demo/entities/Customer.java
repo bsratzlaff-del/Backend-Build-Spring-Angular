@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import java.util.Set;
 import java.util.HashSet;
@@ -37,7 +38,8 @@ public class Customer {
 
     @NotBlank(message = "Postal code is required")
     @Column(name = "postal_code")
-    private String postal_code;
+    @JsonProperty("postal_code")
+    private String postalCode;
 
     @NotBlank(message = "Phone number is required")
     @Column(name = "phone")
@@ -49,6 +51,7 @@ public class Customer {
 
     @Column(name = "last_update")
     @UpdateTimestamp
+
     private Date last_update;
 
     @NotNull(message = "Division is required")

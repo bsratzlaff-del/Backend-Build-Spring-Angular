@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @Table(name="vacations")
 @Getter
 @Setter
+
 public class Vacation {
 
     @Id

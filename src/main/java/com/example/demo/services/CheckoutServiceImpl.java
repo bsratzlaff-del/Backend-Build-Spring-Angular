@@ -32,34 +32,37 @@ public class CheckoutServiceImpl implements CheckoutService {
         Customer customer = purchase.getCustomer();
         Set<CartItem> cartItems = purchase.getCartItems();
 
-        if (customer.getDivision() == null){
-            com.example.demo.entities.Division dummyDivision = new com.example.demo.entities.Division();
-            dummyDivision.setId(2L);
-
-            com.example.demo.entities.Country dummyCountry = new com.example.demo.entities.Country();
-            dummyCountry.setId(1L);
-            customer.setDivision(dummyDivision);
-        }
-
         cart.setId(null);
-        customer.setId(null);
-
-        if (customer.getCarts() != null) {
-            customer.getCarts().clear();
-        }
-
         String orderTrackingNumber = UUID.randomUUID().toString();
         cart.setOrderTrackingNumber(orderTrackingNumber);
         cart.setStatus(StatusType.ordered);
 
-        cartItems.forEach(item -> {
-            item.setCart(cart);
-            item.setId(null);
-        });
+        if (cartItems != null) {
+            cartItems.forEach(item -> {
+                item.setCart(cart);
+                cart.add(item);
+                item.setId(null);
+            });
+        }
 
+        cart.setCustomer(customer);
         customer.add(cart);
 
-        customerRepository.save(customer);
+
+        if (customer != null && customer.getDivision()== null){
+            com.example.demo.entities.Division dummyDivision = new com.example.demo.entities.Division();
+            dummyDivision.setId(2L);
+            customer.setDivision(dummyDivision);
+        }
+
+
+
+
+
+
+
+
+        cartRepository.save(cart);
 
         return new PurchaseResponse(orderTrackingNumber);
     }

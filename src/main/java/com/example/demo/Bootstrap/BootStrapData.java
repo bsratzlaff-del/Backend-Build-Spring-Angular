@@ -27,7 +27,7 @@ public class BootStrapData implements CommandLineRunner {
             customer1.setFirstName("Ron");
             customer1.setLastName("Swanson");
             customer1.setAddress("1 Off Road Ln");
-            customer1.setPostal_code("12345");
+            customer1.setPostalCode("12345");
             customer1.setPhone("(229)123-4567");
             customer1.setDivision(sampleDivision);
             customerRepository.save(customer1);
@@ -37,7 +37,7 @@ public class BootStrapData implements CommandLineRunner {
             customer2.setFirstName("Leslie");
             customer2.setLastName("Knope");
             customer2.setAddress("35 Pawnee Rd");
-            customer2.setPostal_code("12346");
+            customer2.setPostalCode("12346");
             customer2.setPhone("(229)123-5768");
             customer2.setDivision(sampleDivision);
             customerRepository.save(customer2);
@@ -47,7 +47,7 @@ public class BootStrapData implements CommandLineRunner {
             customer3.setFirstName("Andy");
             customer3.setLastName("Dwyer");
             customer3.setAddress("1973 MouseRat St");
-            customer3.setPostal_code("12346");
+            customer3.setPostalCode("12346");
             customer3.setPhone("(229)321-6940");
             customer3.setDivision(sampleDivision);
             customerRepository.save(customer3);
@@ -57,7 +57,7 @@ public class BootStrapData implements CommandLineRunner {
             customer4.setFirstName("Tom");
             customer4.setLastName("Haverford");
             customer4.setAddress("11 Baller Ln");
-            customer4.setPostal_code("12489");
+            customer4.setPostalCode("12489");
             customer4.setPhone("(268)571-1298");
             customer4.setDivision(sampleDivision);
             customerRepository.save(customer4);
@@ -67,7 +67,7 @@ public class BootStrapData implements CommandLineRunner {
             customer5.setFirstName("Jerry");
             customer5.setLastName("Gergich");
             customer5.setAddress("37 Muncy Hwy");
-            customer5.setPostal_code("12954");
+            customer5.setPostalCode("12954");
             customer5.setPhone("(229)678-1292");
             customer5.setDivision(sampleDivision);
             customerRepository.save(customer5);

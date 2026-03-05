@@ -3,9 +3,11 @@ package com.example.demo.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Date;
 import java.util.Set;
 import java.math.BigDecimal;
@@ -13,7 +15,9 @@ import java.util.HashSet;
 
 @Entity
 @Table(name="carts")
-@Data
+@Getter
+@Setter
+
 public class Cart {
 
     @Id
@@ -24,11 +28,9 @@ public class Cart {
     @Column(name = "order_tracking_number")
     private String orderTrackingNumber;
 
-    @NotNull(message = "Package price is required")
     @Column(name = "package_price")
     private BigDecimal package_price;
 
-    @NotNull(message = "Party size is required")
     @Column(name = "party_size")
     private int party_size;
 
@@ -49,6 +51,7 @@ public class Cart {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
+    @JsonIgnore
     private Customer customer;
 
 

@@ -12,6 +12,7 @@ import java.util.Set;
 @Table(name="divisions")
 @Getter
 @Setter
+
 public class Division {
 
     @Id
